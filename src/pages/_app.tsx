@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
 import '@src/styles/globals.css';
 import type { AppProps } from 'next/app';
+import Layout from '@src/components/Layout/Layout';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
-    <>
+    <Layout>
       <Component {...pageProps} />
-    </>
+    </Layout>
   )
 }
 
