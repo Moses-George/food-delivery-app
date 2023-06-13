@@ -7,6 +7,7 @@ import Carousel from '@src/components/Testimonials/Carousel';
 import MealCaption from '@src/components/UI/MealCaption/MealCaption';
 import  MenuList  from '@src/components/MenuList/MenuList';
 import MealsRow from '@src/components/Meals/MealsRow';
+import Navbar from '@src/components/Layout/Navbar/Navbar';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,13 +15,15 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="order your favourite foods from GeovinFoods" />
+        <title>Gee Foods</title>
+        <meta name="description" content="order your favourite foods from GeeFoods" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className=''>
-        <IntroSection />
+      <div className='mt-20 sm:mt-18'>  
+      <div id='portal-root'></div>
+        <Navbar />
+        <IntroSection /> 
         <HotMealsRow /> 
         <MenuList />
         <MealsRow />

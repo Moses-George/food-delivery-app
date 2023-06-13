@@ -12,7 +12,9 @@ module.exports = {
     extend: {
       colors: {
         "lightest-gray": "#F5F7FA",
+        "light-gray": "hsl(228, 6%, 85%)",
         "medium-gray": "hsl(224, 8%, 36%)",
+        "dark-gray": "#334155",
         "nav-bg": "rgba(255, 255, 255, .5)",
         "lime-green": "hsl(136, 65%, 51%)",
         "cyan": "hsl(192, 70%, 51%)",
