@@ -22,7 +22,7 @@ const Footer = () => {
                     <FaGithub style={{ color: "hsl(233, 26%, 24%)", fontSize: "25px" }} />
                 </div>
             </div>
-            <p className="text-medium-gray text-center mt-5 mb-3">© {new Date().getFullYear()} Moses George</p>
+            <p className="text-medium-gray text-center mt-1 mb-3">© {new Date().getFullYear()} Moses George</p>
         </footer> 
     )
 }

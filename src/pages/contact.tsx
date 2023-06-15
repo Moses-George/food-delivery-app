@@ -5,7 +5,7 @@ import { SiGmail } from "react-icons/si";
 const Contact = () => {
 
     return (
-        <div className="my-16 sm:my-10">
+        <div className="mt-28 sm:mt-24 mb-16 sm:mb-10">
             <div className="contact-me sm:grid-cols-1 sm:w-full md:m-0 md:container sm:container">
                 <div className="contact-form sm:m-0 sm:row-start-2 sm:row-end-3">
                     <h1>Get in touch</h1>
@@ -33,8 +33,8 @@ const Contact = () => {
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-                <div className="contact-info bg-dark-blue sm:gap-y-10">
-                    <h1>Contact me</h1>
+                <div className="contact-info bg-[#ff4c68] sm:gap-y-10">
+                    <h1>Contact us</h1>
                     <div className="alt-contact">
                         <div className="contact-icon">
                             <FaLocationArrow style={{ fontSize: "22px", zIndex: "99999" }} />

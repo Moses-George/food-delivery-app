@@ -45,12 +45,13 @@ body {
 
 body {
   color: rgb(0,0,0);
-  background: linear-gradient(
+  background: linear-gradient(to right, #ffe9e3, #fff6f5, #fcedea);
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(255, 255, 255)
     )
-  #ebedf0;
+  #ebedf0; */
 }
 
 a {
@@ -58,12 +59,24 @@ a {
   text-decoration: none;
 }
 
+header {
+  box-shadow: 0 0 10px rgba(139, 136, 136, 0.25);
+}
+
+.d-card {
+  background-color: rgba(255, 250, 251, 0.5);
+  /* backdrop-filter: blur(20px); */
+  box-shadow: 34px 34px 68px 0px rgba(139, 136, 136, 0.25), inset -8px -8px 16px 0px rgba(185, 122, 134, 0.7), inset 0px 14px 28px 0px #f5f0f1 ;
+  /* color: #f5f0f1; */
+}
+
 .mobile-img {
   background-image: url('../assets/images/bg/food-1.jpg');
   background-size: cover;
   background-position: center;
   z-index: -1;
-  height: 28.5rem;
+  height: 29rem;
+      /* color: #e2e6ec; */
 }
 
 .blur-background {
@@ -80,8 +93,21 @@ a {
   filter: blur(1px);
 }
 
-header {
-  z-index: 100;
+input[type="radio"]:checked + span {
+  display: block;
+}
+
+/* .underline-magical {
+  background-image: linear-gradient(to bottom,#fff, #f0f4f8);
+  background-repeat: no-repeat;
+  background-size: 50% 0.2em;
+  background-position: 5% 88%;
+  transition: background-size 0.25s ease-in;
+  line-height: 1.5;
+} */
+
+.underline-magical:hover {
+  background-size: 100% 88%;
 }
 
 /* styles for  horizontal scrollbar */
@@ -367,10 +393,10 @@ textarea:focus {
 form button {
   padding: .7rem 2rem;
   border-radius: .3rem;
-  border: 2px solid hsl(233, 26%, 24%);
+  border: 2px solid #ff4c68;
   font-size: 1rem;
   background: transparent;
-  color: hsl(233, 26%, 24%);
+  color: #ff4c68;
   width: fit-content;
   cursor: pointer;
 }
@@ -378,7 +404,7 @@ form button {
 
 form button:hover {
   color: #f8fafc;
-  background: hsl(233, 26%, 24%);
+  background: #ff4c68;
 }
 
 .contact-info {
@@ -404,8 +430,8 @@ form button:hover {
 }
 
 .contact-icon {
-  padding: .7rem .8rem;
-  border-radius: 50%;
-  background-color: hsl(232, 27%, 34%);
+  padding: .8rem .9rem;
+  border-radius: 50%; 
+  background-color: #ee2b48;
 }
 

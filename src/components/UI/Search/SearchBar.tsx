@@ -11,7 +11,7 @@ const SearchBar = () => {
             </div>
             <input type="text" id="simple-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-blue-300 block w-full pl-10 p-2.5  " placeholder="Search for your favourite meal..." required />
         </div>
-        <button type="submit" className="p-2.5 ml-2 text-sm font-medium text-white bg-lime-green rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+        <button type="submit" className="p-2.5 ml-2 text-sm font-medium text-white bg-medium-peach rounded-lg border border-dark-peach hover:bg-dark-peach focus:ring-4 focus:outline-none focus:ring-lightest-peach ">
             <FaSearch className="w-5 h-5" />
             <span className="sr-only">Search</span>
         </button>

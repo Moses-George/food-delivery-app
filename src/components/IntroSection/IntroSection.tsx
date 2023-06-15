@@ -12,7 +12,7 @@ const IntroSection = () => {
                 <TextAnimation />
             </div>
             <Image src={img2} alt="img1" className="h-full -ml-24 self-center md:hidden sm:hidden" />
-            <div className="self-center container -ml-8 md:ml-0 sm:ml-0">
+            <div className="self-center container max-w-3xl -ml-16 md:ml-0 sm:ml-0">
                 <h1 className="py-2 sm:pt-10 text-7xl text-center text-dark-blue md:text-5xl sm:text-4xl leading-tight">Wake Up Early, Eat Fresh and Healthy</h1>
                 <p className="text-center text-lg text-medium-gray my-5">Aside from their natural  good taste and great crunchy texture alongside wonderful colors and fragrances, eating a large serving of fresh.</p>
             </div>

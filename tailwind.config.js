@@ -21,8 +21,11 @@ module.exports = {
         "grayish-blue": "hsl(233, 8%, 62%)",
         "transparent-green": "#f2fff2",
         "dark-blue": "hsl(233, 26%, 24%)",
-        "gold": "gold",
-        "blue": "blue"
+        "lightest-peach": "#f1bfb8",
+        "light-peach": "#ef8172",
+        "medium-peach": "#ff4c68",
+        "dark-peach": "#DA0463",
+        "grayish-white": "#f0f4f8",
       }
     },
     screens: {

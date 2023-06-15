@@ -5,9 +5,10 @@ import IntroSection from '@src/components/IntroSection/IntroSection';
 import HotMealsRow from '@src/components/Meals/HotMeals/HotMealsRow';
 import Carousel from '@src/components/Testimonials/Carousel';
 import MealCaption from '@src/components/UI/MealCaption/MealCaption';
-import  MenuList  from '@src/components/MenuList/MenuList';
+import MenuList from '@src/components/MenuList/MenuList';
 import MealsRow from '@src/components/Meals/MealsRow';
 import Navbar from '@src/components/Layout/Navbar/Navbar';
+import PaymentOptions from '@src/components/UI/Modals/PaymentOptions/PaymentOptions';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,15 +21,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='mt-20 sm:mt-18'>  
-      <div id='portal-root'></div>
+      <div className=''>
+        {/* <div id='portal-root' className='grid'></div> */}
+        {/* <PaymentOptions /> */}
         <Navbar />
-        <IntroSection /> 
-        <HotMealsRow /> 
+        <IntroSection />
+        <HotMealsRow />
         <MenuList />
         <MealsRow />
         <MealCaption
-          header='Good food, good taste'
+          header='You gotta nourish to florish'
           bgImageClass="bg-[url('../assets/images/bg/blur-8.jpg')]"
           note='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi assumenda molestiae beatae nisi quis culpa adipisci et eius, quisquam repellendus magnam earum aut architecto.' />
         <Carousel />
