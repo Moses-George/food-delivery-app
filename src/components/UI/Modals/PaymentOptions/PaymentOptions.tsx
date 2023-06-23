@@ -1,66 +1,58 @@
-import React, { useState } from "react";
+import { useState } from "react"; 
+import { useRouter } from "next/router";
 import Backdrop from "../../Backdrop/Backdrop";
 import Portal from "@src/components/Portal/Portal";
-import Image from "next/image";
-import mastercard from "@src/assets/images/payment/mastercard.svg";
-import visa from "@src/assets/images/payment/visa.svg";
-import paypal from "@src/assets/images/payment/paypal.svg";
-import card from "@src/assets/images/payment/card.svg";
-import { FaCcMastercard, FaCcPaypal, FaCcVisa } from "react-icons/fa";
+import { FaCcMastercard, FaCcPaypal, FaCcVisa, FaArrowRight } from "react-icons/fa";
+import { GiTakeMyMoney } from "react-icons/gi";
+import { TiCancel } from "react-icons/ti";
+import Link from "next/link";
+import Option from "./Option";
+import { PaymentOptionsProps } from "@src/utils/interfaces/propsInterfaces";
 
-interface methodProps {
-    checked: boolean;
-    onChange: () => void;
-    name: string;
-    icon: any
-}
 
-const methodData = [ 
-    {id:"m1", name:"Paypal",  icon: <FaCcPaypal className="w-40 h-24 text-blue"  />},
-    {id:"m2", name:"Master card", icon: <FaCcMastercard className="w-40 h-24 text-dark-peach" /> },
-    {id:"m3", name:"Visa", icon: <FaCcVisa className="w-40 h-24 text-dark-blue" />} 
+const optionsData = [
+    { id: "m1", name: "Paypal", icon: <FaCcPaypal className="text-[7rem] text-[blue]" /> },
+    { id: "m2", name: "Mastercard", icon: <FaCcMastercard className="text-[7rem] text-[#f7791b]" /> }, 
+    { id: "m3", name: "Visa", icon: <FaCcVisa className="text-[7rem] text-dark-blue" /> }, 
+    { id: "m4", name: "Cash", icon: <GiTakeMyMoney className="text-[7rem] text-dark-blue" /> }
 ]
 
 
-const Method = ({checked, onChange, name, icon}: methodProps) => {
 
-    return (
+const PaymentOptions = ({ setShowOptions, showOptions, slideUp, setSlideUp }: PaymentOptionsProps) => {
 
-        <div className={`flex justify-between items-center  w-full h-28 px-3 py-6 shadow-sm border-2 ${checked && "border-dark-peach"} rounded-md`}>
-                <input
-                    id="radio"
-                    type="radio"
-                    onChange={onChange}
-                    checked={checked}
-                    name={name}
-                    className="-ml-30 w-5 h-5"
-                />
-                {/* <div className=""> */}
-                    {icon}
-                {/* </div> */}
-        </div>
-    )
-}
+    const [selectedOption, setSelectedOption] = useState<string>("");
 
+    const router = useRouter();
 
+    const proceedToPayment = () => {
+        router.push(`/cart/checkout?option=${selectedOption}`);
+    }
 
-const PaymentOptions = () => {
+    const cancelPayment = () => {
+        setShowOptions(false);
+        setSlideUp(true);
+    } 
 
-    const [display, setDisplay] = useState(false);
-    const [method, setMethod] = useState<string>("");
-
-    return (
+    return ( 
         <Portal selector="#portal-root">
-            <Backdrop onClick={() => setDisplay(true)} />  
-            <div className="justify-self-center container fixed top-5 z-[9999] w-[35%] sm:w-[95%] h-[90%] sm:h-[95%]  bg-white rounded-md ">
-                <h1 className="text-3xl text-dark-gray pt-3">Payment options</h1>
-                {/* <Image src={card} alt="" className="-mt-0 h-40 w-full" /> */}
-                <div className="py-6 grid gap-y-5">
-                    {methodData.map(pay=> <Method key={pay.id} name={pay.name} onChange={()=> setMethod(pay.id)} checked={pay.id === method} icon={pay.icon} />)}
+            {showOptions && <Backdrop onClick={() => setShowOptions(false)} />}
+            <div className={`${showOptions && "slide-down"} ${slideUp && "slide-up"} transform translate-y-[-100%] justify-self-center fixed  z-[9999] w-[25rem] sm:w-[95%] h-[90%] sm:h-[93%]  bg-white rounded-md`}>
+                <h1 className="text-3xl text-dark-gray py-3 px-4">Payment options</h1>
+                <div className="py-6 grid gap-y-4 container scroller h-[77%]">
+                    {optionsData.map(option => <Option key={option.id} name={option.name} onChange={() => setSelectedOption(option.name)} checked={option.name === selectedOption} icon={option.icon} />)}
                 </div>
-                <div className="flex justify-between text-lg py-3">
-                    <button onClick={()=> setDisplay(false)} className="px-5 py-2 border-2 border-medium-peach text-dark-peach rounded-md">Cancel</button>
-                    <button className="px-5 py-2 bg-medium-peach rounded-md text-white">Continue</button>
+                <div className="flex justify-between text-lg pt-3 px-4">
+                    <button onClick={cancelPayment} className="flex items-center space-x-2 px-4 py-2 border-2 border-medium-peach text-dark-peach rounded-md">
+                        <TiCancel className="text-3xl" />
+                        <span>Cancel</span>
+                    </button>
+                    {/* <Link href={{ pathname: "/cart/checkout", query: { option: selectedOption } }}> */}
+                        <button onClick={proceedToPayment} className="flex items-center space-x-2 px-4 py-2 bg-medium-peach rounded-md text-white">
+                            <span>Continue</span>
+                            <FaArrowRight className="text-2xl" />
+                        </button>
+                    {/* </Link> */}
                 </div>
             </div>
         </Portal>

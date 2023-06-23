@@ -8,7 +8,6 @@ import MealCaption from '@src/components/UI/MealCaption/MealCaption';
 import MenuList from '@src/components/MenuList/MenuList';
 import MealsRow from '@src/components/Meals/MealsRow';
 import Navbar from '@src/components/Layout/Navbar/Navbar';
-import PaymentOptions from '@src/components/UI/Modals/PaymentOptions/PaymentOptions';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,8 +21,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className=''>
-        {/* <div id='portal-root' className='grid'></div> */}
-        {/* <PaymentOptions /> */}
         <Navbar />
         <IntroSection />
         <HotMealsRow />

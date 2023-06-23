@@ -23,17 +23,23 @@ const Navbar = () => {
                     </div>
                     <div className="">
                     </div>
-                    <div className="justify-self-end flex items-end gap-x-4 sm:gap-x-3">
+                    <div className="justify-self-end flex items-end gap-x-4 sm:gap-x-2">
                         <div className="p-2 rounded-lg bg-medium-peach">
-                        <FaSearch style={{fontSize:"20px", color: "#fff"}} />
+                            <Link href="/search" >
+                                <FaSearch className="text-xl text-white" />
+                            </Link>
                         </div>
                         <Link href="/cart">
-                            <div className="relative self-end border-dark-peach rounded-lg py-[.3rem] px-[.4rem] border-2 mr-3">
-                                <div className="absolute -top-2 -right-5 font-bold text-md text-white text-center w-7 bg-medium-peach rounded-lg">3</div>
-                                <FiShoppingBag style={{ color: "#DA0463", fontSize: "22px", borderRadius: ".5rem", marginRight: "0" }} />
+                            <div className="relative self-end border-dark-peach rounded-lg py-[.2rem] px-[.3rem] border-2 mr-3">
+                                <div className="absolute -top-2 -right-6 font-bold text-md text-white text-center w-7 bg-medium-peach rounded-lg">3</div>
+                                <FiShoppingBag className="text-dark-peach text-2xl" />
                             </div>
                         </Link>
-                        <MdAccountBox className="-mb-2 text-dark-blue" style={{ fontSize: "50px" }} />
+                        <Link href="/user">
+                            <MdAccountBox className="-mb-2 text-dark-blue text-5xl" />
+                        </Link>
+                        {/* <Link href="/login" className="py-1 px-3 rounded-3xl hover:opacity-50 border-4 border-dark-peach bg-lightest-peach text-dark-peach">Login</Link>
+                        <Link href="/signup" className="sm:hidden py-2 px-3 hover:opacity-70 rounded-3xl bg-dark-peach  text-white">Signup</Link> */}
                     </div>
                 </nav>
             </header>

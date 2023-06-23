@@ -2,12 +2,15 @@ import Image from "next/image";
 import SearchBar from "@src/components/UI/Search/SearchBar";
 import img from "@src/assets/images/bg/porridge.jpeg";
 import { BsFillCartFill } from "react-icons/bs";
+import { FaPlus } from "react-icons/fa";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import MenuDropDown from "@src/components/UI/Search/MenuDropDown";
 
 
 const PopularSearchItem = () => {
 
     return (
-        <div className="flex justify-between items-center space-x-7 px-2 py-5 border-b-2">
+        <div className="flex justify-between items-center space-x-7 sm:space-x-9 px-2 py-5 border-b-2">
             <div className="flex items-center space-x-3">
                 <Image src={img} alt="" className="w-20 h-20 rounded-xl" />
                 <div className="">
@@ -15,10 +18,14 @@ const PopularSearchItem = () => {
                     <p>$13.22</p>
                 </div>
             </div>
-            <button className="flex items center space-x-2 py-2  px-3 bg-medium-peach rounded-lg text-white shadow-md">
-                <span className="text-sm">Add to cart</span>
-                <BsFillCartFill style={{ fontSize: "18px" }} />
-            </button>
+            <div className="flex items-center space-x-3">
+                <button className="p-1 bg-lightest-peach rounded-full">
+                    <MdFavorite className="text-dark-peach text-xl" />
+                </button>
+                <button className="shadow-md p-2 bg-medium-peach rounded-md">
+                    <BsFillCartFill className="text-white" />
+                </button>
+            </div>
         </div>
     )
 }
@@ -26,18 +33,26 @@ const PopularSearchItem = () => {
 const Search = () => {
 
     return (
-        <div className="grid grid-cols-[3.5fr_3fr_3.5fr] mt-28 px-10">
-            <aside className="bg-white shadow-md py-10 px-5">
-                <h1 className="text-3xl text-dark-gray pb-10">Popular searches</h1>
-                <div className="grid">
+        <div className="grid grid-cols-[3.5fr_3fr_3.5fr] sm:grid-cols-1 mt-28 sm:mt-10 mb-40 sm:mb-10 px-10 sm:px-0 h-full">
+            <aside className="bg-white shadow-md py-10 px-5 sm:row-start-3 sm:row-end-4 sm:mt-10">
+                <h1 className="text-2xl text-dark-gray pb-10">Popular searches</h1>
+                <div className="grid scroller  h-[35rem]">
                     <PopularSearchItem />
                     <PopularSearchItem />
-                    {/* <PopularSearchItem /> */}
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
                     <PopularSearchItem />
                 </div>
             </aside>
-            <section className="px-5 py-10 bg-white my-10 shadow-md">
-                <h1 className="text-2xl text-dark-gray pb-10">Looking for your favourite meal?</h1>
+            <section className="px-5 py-10 bg-white sm:my-10 shadow-md">
+                <h1 className="text-xl text-dark-gray pb-10">Looking for your favourite meal?</h1>
                 <SearchBar />
                 <div className="flex py-10 flex-wrap gap-x-2 gap-y-3">
                     <div className="px-4 py-1 border-2 border-dark-peach rounded-2xl text-dark-peach">Rice</div>
@@ -51,8 +66,28 @@ const Search = () => {
                     <div className="px-4 py-1 border-2 border-dark-peach rounded-2xl text-dark-peach">Rice</div>
                     <div className="px-4 py-1 border-2 border-dark-peach rounded-2xl text-dark-peach">Rice</div>
                 </div>
+                <div className="h-fit space-y-2">
+                    <span className="font-semibold text-medium-gray">Sort by</span>
+                    <MenuDropDown /> 
+                </div>
             </section>
-            <section className=""></section>
+            <section className="w-full h-full bg-white shadow-md px-5 pt-10">
+                <h1 className="text-2xl text-dark-gray pb-10">Results Found (20)</h1>
+                <div className="grid h-[35rem] scroller">
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                    <PopularSearchItem />
+                </div>
+            </section>
         </div>
     )
 }

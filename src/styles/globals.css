@@ -65,9 +65,7 @@ header {
 
 .d-card {
   background-color: rgba(255, 250, 251, 0.5);
-  /* backdrop-filter: blur(20px); */
   box-shadow: 34px 34px 68px 0px rgba(139, 136, 136, 0.25), inset -8px -8px 16px 0px rgba(185, 122, 134, 0.7), inset 0px 14px 28px 0px #f5f0f1 ;
-  /* color: #f5f0f1; */
 }
 
 .mobile-img {
@@ -76,7 +74,6 @@ header {
   background-position: center;
   z-index: -1;
   height: 29rem;
-      /* color: #e2e6ec; */
 }
 
 .blur-background {
@@ -95,6 +92,73 @@ header {
 
 input[type="radio"]:checked + span {
   display: block;
+}
+
+.shape {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-top-right-radius: -.5rem;
+  /* border-radius: 100%; */
+}
+
+.shape::before {
+  content: '';
+  width: 50%;
+  height: 100%;
+  background-color: #ffe9e3;
+  position: absolute;
+  top: 0;
+  right: -80px;
+  border-radius: 2rem;
+}
+
+.slide-down {
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.slide-up {
+  animation: slide-up 400ms ease-out forwards;
+}
+
+@keyframes slide-down {
+  from {
+      opacity: 0;
+      transform: translateY(-3rem);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(4%);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  25% {
+    opacity: 0.75;
+    transform: translateY(-25%);
+}
+
+50% {
+  opacity: 0.5;
+  transform: translateY(-50%);
+}
+
+75% {
+  opacity: 0.25;
+  transform: translateY(-75%);
+}
+
+  100% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
 }
 
 /* .underline-magical {
@@ -151,7 +215,7 @@ input[type="radio"]:checked + span {
 /* text animation on home page */
 
 .text-container {
-  color: hsl(233, 26%, 13%);
+  color: hsl(233, 26%, 24%);
   text-transform: uppercase;
   font-size: 40px;
   font-weight: bold;
@@ -272,14 +336,14 @@ input:focus~label,
 input:valid~label {
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: #ef8172;
 }
 
 textarea:focus~label,
 textarea:valid~label {
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: #ef8172;
 }
 
 /* BOTTOM BARS ================================= */
@@ -296,7 +360,7 @@ textarea:valid~label {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264AE;
+  background: #ef8172;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -342,7 +406,7 @@ input:focus~.highlight {
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from {
-      background: #5264AE;
+      background: #ef8172;
   }
 
   to {
@@ -353,7 +417,7 @@ input:focus~.highlight {
 
 @-moz-keyframes inputHighlighter {
   from {
-      background: #5264AE;
+      background: #ef8172;
   }
 
   to {
@@ -364,7 +428,7 @@ input:focus~.highlight {
 
 @keyframes inputHighlighter {
   from {
-      background: #5264AE;
+      background: #ef8172;
   }
 
   to {
@@ -383,7 +447,7 @@ textarea {
   width: 300px;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #5264AE;
+  border-bottom: 1px solid #ef8172;
 }
 
 textarea:focus {

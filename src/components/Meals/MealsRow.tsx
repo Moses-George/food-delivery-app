@@ -1,3 +1,4 @@
+import { Products } from "@src/utils/data/products";
 import MealCard from "./MealCard";
 
 
@@ -5,8 +6,9 @@ const MealsRow = () => {
 
     return (
         <div className="bg-lightest-peach w-full h-full"> 
-            <div className="scroller h-full pt-32 sm:pt-20 pb-20 px-3"> 
-                {[1,2,3,4,5,6,7,8,9].map(meal=> <MealCard key={meal} />)}
+            <h1 className="container mb-0 text-4xl sm:text-3xl text-dark-gray pb-0 pt-12 md:ml-5">Starter Menu</h1>
+            <div className="scroller h-full  pt-20 sm:pt-16 pb-20 px-3">
+                {Products.map(meal => <MealCard key={meal.id} id={meal.id} name={meal.name} price={meal.price} imageUrl={meal.imageUrl} />)}
             </div>
         </div>
     )
