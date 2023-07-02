@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { useAppDispatch, useAppSelector } from "@src/store/hooks";
 import { addItemToCart, cartSelector } from "@src/store/features/cart/cartSlice";
-import { Product } from "@src/utils/data/products";
+import { Product } from "@src/utils/AvailableMeals/data";
 
 // interface MealProps {
 //     name: string;

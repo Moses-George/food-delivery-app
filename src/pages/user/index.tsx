@@ -1,6 +1,8 @@
 import UserProfileLayout from "@src/components/Layout/userProfileLayout/UserProfileLayout";
 import UserAddress from "@src/components/User/UserAddress";
 import UserDetails from "@src/components/User/UserDetails";
+import { hasToken } from "@src/middleware/authCheck";
+import { GetServerSideProps, NextApiRequest } from "next";
 
 
 const UserProfile = () => {
@@ -18,3 +20,19 @@ const UserProfile = () => {
 }
 
 export default UserProfile;
+
+export const  getServerSideProps: GetServerSideProps = async (context) => {
+
+    const token = await hasToken(context.req as NextApiRequest);
+  
+    if(!token){
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
+  
+    return { props: {}}
+  }

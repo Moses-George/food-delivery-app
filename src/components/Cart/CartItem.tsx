@@ -12,7 +12,7 @@ const CartItem = () => {
                 <Image src={food} alt="" className="w-24 h-24 rounded-3xl" />
                 <div className="">
                     <h2 className="text-xl font-bold text-dark-gray">Chicken and Ribs combo</h2>
-                    <p className="text-grayish-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit doloremque?</p>
+                    <p className="text-grayish-blue">Lorem ipsum dolor sit amet  doloremque?</p>
                 </div>
             </div>
             <div className="flex items-center justify-between gap-x-5">

@@ -7,12 +7,12 @@ import { BsFillCartFill } from "react-icons/bs";
 const CartLayout = ({ children }: PropsWithChildren) => {
 
     return (
-        <section className="px-16 sm:container gap-y-7 mb-40 grid grid-cols-[6.5fr_3.5fr] sm:grid-cols-1 md:grid-cols-1 gap-x-24 mt-28 sm:mt-24">
+        <section className="px-8 sm:container gap-y-7 mb-40 grid grid-cols-[6fr_4fr] sm:grid-cols-1 md:grid-cols-1  mt-28 sm:mt-24">
             <div className="">
-                <div className="flex gap-x-4 items-center pb-8">
+                {/* <div className="flex gap-x-4 items-center pb-8">
                     <h1 className="text-4xl sm:text-3xl text-dark-gray self-center">My Cart</h1>
                     <BsFillCartFill className="text-dark-gray self-end sm:self-center" style={{fontSize:"22px"}} /> 
-                </div>
+                </div> */}
                 <div className="shadow-lg bg-white rounded-md h-full w-full pb-5 px-5">
                     <div className="py-5">
                         <span className="text-3xl font-bold text-dark-gray">Menu</span>

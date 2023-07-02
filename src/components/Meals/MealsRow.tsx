@@ -1,4 +1,4 @@
-import { Products } from "@src/utils/data/products";
+import { Products } from "@src/utils/AvailableMeals/data";
 import MealCard from "./MealCard";
 
 

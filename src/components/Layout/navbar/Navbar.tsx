@@ -7,10 +7,12 @@ import logo from "@src/assets/images/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
 
     const [sidebarIsVisible, setSidebarIsVisible] = useState(false);
+    const { data: session } = useSession();
 
     return (
         <>
@@ -29,17 +31,17 @@ const Navbar = () => {
                                 <FaSearch className="text-xl text-white" />
                             </Link>
                         </div>
-                        <Link href="/cart">
+                        {session && <Link href="/cart">
                             <div className="relative self-end border-dark-peach rounded-lg py-[.2rem] px-[.3rem] border-2 mr-3">
                                 <div className="absolute -top-2 -right-6 font-bold text-md text-white text-center w-7 bg-medium-peach rounded-lg">3</div>
                                 <FiShoppingBag className="text-dark-peach text-2xl" />
                             </div>
-                        </Link>
-                        <Link href="/user">
+                        </Link>}
+                        {session && <Link href="/user">
                             <MdAccountBox className="-mb-2 text-dark-blue text-5xl" />
-                        </Link>
-                        {/* <Link href="/login" className="py-1 px-3 rounded-3xl hover:opacity-50 border-4 border-dark-peach bg-lightest-peach text-dark-peach">Login</Link>
-                        <Link href="/signup" className="sm:hidden py-2 px-3 hover:opacity-70 rounded-3xl bg-dark-peach  text-white">Signup</Link> */}
+                        </Link>}
+                        {!session && <Link href="/login" className="py-1 px-3 rounded-3xl hover:opacity-50 border-4 border-dark-peach bg-lightest-peach text-dark-peach">Login</Link>}
+                        {!session && <Link href="/signup" className="sm:hidden py-2 px-3 hover:opacity-70 rounded-3xl bg-dark-peach  text-white">Signup</Link>}
                     </div>
                 </nav>
             </header>
