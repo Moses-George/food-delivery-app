@@ -11,6 +11,8 @@ interface IUser extends User {
     role: string;
 }
 
+// dbConnect();
+
 
 export default NextAuth({
     // Enable JSON Web Tokens since we will not store sessions in our DB
@@ -27,26 +29,34 @@ export default NextAuth({
                 password: { label: "Password", type: "password" }
             },
             // Authorize callback is ran upon calling the signin function
-            authorize: async (credentials) => {
-                await dbConnect();
-
-                // Try to find the user and also return the password field
-                const user = await MyUser.findOne({ email: credentials?.email }).select('+password');
-
-                if (!user) { throw new Error('No user with a matching email was found.') }
-
-                // Use the comparePassword method we defined in our user.js Model file to authenticate
-                const pwValid = await user.comparePassword(credentials?.password);
-
-                if (!pwValid) { throw new Error("Your password is invalid") }
-
-                return user;
-            }
+            async authorize(credentials, req) {
+                  await dbConnect();
+                // if (db)
+                console.log(credentials);
 
 
+                    try {
+                        // Try to find the user and also return the password field
+                        const user = await MyUser.findOne({ email: credentials?.email }).select('+password');
+
+                        if (!user) { throw new Error('No user with a matching email was found.') }
+
+                        // Use the matchPassword method we defined in our user.js Model file to authenticate
+                        const pwValid = await user.matchPassword(credentials?.password);
+
+                        if (!pwValid) { throw new Error("Your password is invalid") }
+
+                        return user;
+
+                    } catch (err: any) {
+                        console.error(err.message);
+                    }
+
+            },
         })
     ],
     secret: process.env.NEXTAUTH_SECRET,
+    // url: "localhost:300",
     // All of this is just to add user information to be accessible for our app in the token/session
     callbacks: {
         // We can pass in additional information from the user document MongoDB returns
@@ -54,22 +64,21 @@ export default NextAuth({
         async jwt({ token, user }) {
             if (user) {
                 token.user = user;
-                console.log(user);
             }
-            return token
+            return token;
             // return { ...token, ...user };
         },
         // If we want to access our extra user info from sessions we have to pass it the token here to get them in sync:
         session: async ({ session, token }) => {
             if (token) {
+                // const userToken = token.user;
                 session.user = token.user as IUser;
-                console.log(session);
             }
             return session;
         }
     },
     pages: {
         // Here you can define your own custom pages for login, recover password, etc.
-        signIn: 'auth/login',
+        signIn: '/login',
     },
 })

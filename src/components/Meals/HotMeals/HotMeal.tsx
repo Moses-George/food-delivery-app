@@ -12,7 +12,7 @@ const HotMealCard = () => {
                 <MdFavorite className="text-dark-peach text-2xl" />
             </div>
             <Image src="/content/image-2.png" alt="imgae1" width={100} height={100} className="self-center w-40 -mt-24 mb-5" />
-            <div className="">  
+            <div className="mt-2">  
                 <h2 className="text-center text-dark-gray font-bold mb-2">Sesame Dressing Salad</h2>
                 <p className="text-center text-medium-gray">Salad vegetable mixed with salmon and eggs</p>
             </div>

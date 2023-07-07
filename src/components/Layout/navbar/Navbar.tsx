@@ -8,20 +8,26 @@ import Image from "next/image";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
 import { useSession } from "next-auth/react";
+import { openSidebar, toggleSelector } from "@src/store/features/sidebarToggle/toggleSidebar";
+import { useAppDispatch, useAppSelector } from "@src/store/hooks";
 
 const Navbar = () => {
 
-    const [sidebarIsVisible, setSidebarIsVisible] = useState(false);
+
     const { data: session } = useSession();
+    console.log(session);
+    const dispatch = useAppDispatch();
+    const toggle = useAppSelector(toggleSelector);
+    console.log(toggle)
 
     return (
         <>
-            {sidebarIsVisible && <Sidebar closeSidebar={() => setSidebarIsVisible(false)} />}
+            {toggle.isVisible && <Sidebar />}
             <header className="bg-nav-bg backdrop-blur-md mx-auto my-0 fixed  left-0 top-0 w-full transition ease-out delay-100 duration-500 z-[100]">
                 <nav className=" container grid grid-cols-3 items-center py-0 sm:py-4 px-5">
                     <div className="">
                         <Image src={logo} alt="logo" className="w-20 sm:hidden" />
-                        <HiMenuAlt2 className="hidden sm:block" style={{ fontSize: "35px", color: "hsl(233, 26%, 24%)" }} onClick={() => setSidebarIsVisible(true)} />
+                        <HiMenuAlt2 className="hidden sm:block" style={{ fontSize: "35px", color: "hsl(233, 26%, 24%)" }} onClick={() => dispatch(openSidebar())} />
                     </div>
                     <div className="">
                     </div>

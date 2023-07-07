@@ -26,7 +26,7 @@ interface connectedOptions extends ConnectOptions {
 
 async function dbConnect() {
     if (cached.conn) {
-        return cached.conn
+        return cached.conn;
     }
 
     const options: connectedOptions = {
@@ -36,13 +36,13 @@ async function dbConnect() {
 
     if (!cached.promise) {
 
-        cached.promise = await mongoose.connect(MONGODB_URI, options).then(mongoose => {
-            return mongoose
+        cached.promise = await mongoose.connect(MONGODB_URI).then(mongoose => {
+            return mongoose;
         })
     }
+    // await parseAndLoadPlanetsData();
     cached.conn = await cached.promise;
-    console.log(cached.conn);
-    return cached.conn
+    return cached.conn;
 }
 
 

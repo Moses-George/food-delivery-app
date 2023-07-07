@@ -9,7 +9,7 @@ export interface IUser {
     role: string;
 }
 
-const userSchema = new Schema<IUser>({
+const UserSchema = new Schema<IUser>({
     username: {
         type: String,
         required: true,
@@ -38,16 +38,18 @@ const userSchema = new Schema<IUser>({
     { timestamps: true },
 );
 
-userSchema.pre('save', async function (next) {
+UserSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
-        next()
+        const salt = await bcrypt.genSalt(10);
+        this.password = await bcrypt.hash(this.password, salt);
     }
-    this.password = await bcrypt.hash(this.password, 10);
-    next()
+    // this.password = await bcrypt.hash(this.password, 10);
+    next();
 })
 
-userSchema.methods.comparePassword = async function (enteredPassword: string) {
-    return await bcrypt.compare(enteredPassword, this.password)
+UserSchema.methods.matchPassword = async function (enteredPassword: string) {
+    console.log(enteredPassword); 
+    return await bcrypt.compare(enteredPassword, this.password);
 }
 
-export default mongoose.models.User || mongoose.model('User', userSchema);
+export default mongoose.models.User || mongoose.model('User', UserSchema);

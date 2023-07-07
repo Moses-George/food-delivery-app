@@ -1,16 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "@src/lib/mongodb/dbConnect";
 import User from "@src/models/user";
+import { Validator } from "@src/utils/validator/credentialValidator";
 
-
-// const createUser = async (user: IUser) => {
-//     const finduser = await User.findOne({
-//         email: user.email
-//     });
-//     if (finduser) throw new Error("User Found, Change Email");
-//     const newUser = await User.create(user);
-//     return newUser;
-// }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
@@ -19,14 +11,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'POST') {
         const { username, email, password } = req.body;
 
+        const validator = new Validator({ username, email, password });
+
+        if (!validator.CredentialisValid()) {
+            res.status(422).json({ message: validator.errorMessage(), ok: false });
+        }
+
         try {
             const ifExist = await User.findOne({ email });
             if (ifExist) {
                 res.status(422).json({ message: 'User already exists', ok: false });
             } else {
-                const data = await User.create(req.body);
+                const data = await User.create({ username, email, password });
                 if (data) {
-                    res.status(201).json({ message: 'User created', ...data , ok: true});
+                    res.status(201).json({ message: 'User created', ...data, ok: true });
                 }
             }
         } catch (err) {

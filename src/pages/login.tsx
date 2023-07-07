@@ -1,5 +1,6 @@
+import useForm from "@src/hooks/useForm";
 import { signInUser } from "@src/lib/auth/signInUser";
-import { getSession, signIn } from "next-auth/react";
+import { getSession, signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FormEvent, useEffect, useRef, useState } from "react";
@@ -10,17 +11,21 @@ const Login = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
+    const { credentials, handleChange } = useForm();
+    const { data: session } = useSession();
+    console.log(session);
 
-    const emailRef = useRef<null | HTMLInputElement>(null);
-    const passwordRef = useRef<null | HTMLInputElement>(null);
 
     const LoginUser = async (event: FormEvent) => {
         event.preventDefault();
 
-        const email = emailRef.current?.value;
-        const password = passwordRef.current?.value;
+        const { email, password } = credentials;
 
-        await signInUser(email, password);
+        try {
+             await signInUser(email, password);
+        } catch (err: any) {
+            console.error(err.message);
+        }
     }
 
     // check if logged in and redirect to home page if so
@@ -32,7 +37,7 @@ const Login = () => {
                 setIsLoading(false);
             }
         });
-    }, [router]);
+    }, [router, session]);
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -44,13 +49,27 @@ const Login = () => {
                 <h1 className="text-3xl text-dark-gray">Login</h1>
                 <form className="pt-10 w flex flex-col items-center justify-center" onSubmit={LoginUser} >
                     <div className="group">
-                        <input type="email" className="border-dark-peach" required autoComplete="off" autoSave="off" />
+                        <input type="email"
+                            name="email"
+                            className="border-dark-peach"
+                            required
+                            autoComplete="off"
+                            autoSave="off"
+                            onChange={handleChange}
+                            value={credentials.email} />
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <label className="text-md text-dark-peach">Email</label>
                     </div>
                     <div className="group">
-                        <input type="password" className="border-dark-peach" required autoComplete="off" autoSave="off" />
+                        <input type="password"
+                            name="password"
+                            className="border-dark-peach"
+                            required
+                            autoComplete="off"
+                            autoSave="off"
+                            onChange={handleChange}
+                            value={credentials.password} />
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <label className="text-md text-dark-peach">password</label>
@@ -58,9 +77,9 @@ const Login = () => {
                     <button type="submit" className="bg-grayish-white border-none text-dark-gray w-4/5 sm:w-full shadow-md">Login</button>
                 </form>
                 <div className="flex items-center py-8 space-x-3">
-                    <div className="bg-white h-1 w-full"></div>
+                    <div className="bg-light-gray h-1 w-full"></div>
                     <span className="text-medium-gray font-semibold text-md">OR</span>
-                    <div className="bg-white h-1 w-full"></div>
+                    <div className="bg-light-gray h-1 w-full"></div>
                 </div>
                 <button className="flex items-center justify-center space-x-3 bg-medium-peach py-2 px-3 w-4/5 sm:w-full mx-auto mb-8 rounded-md shadow-md hover:opacity-60">
                     <FaGoogle className="text-white text-2xl text-[gold]" />

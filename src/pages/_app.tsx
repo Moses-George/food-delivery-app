@@ -5,6 +5,7 @@ import Layout from '@src/components/Layout/Layout';
 import { Provider } from 'react-redux';
 import { store } from '@src/store/store';
 import { SessionProvider } from "next-auth/react";
+import { ToastContainer } from 'react-toastify';
 
 const MyApp = ({ Component, pageProps: { session, pageProps } }: AppProps) => {
 
@@ -12,6 +13,7 @@ const MyApp = ({ Component, pageProps: { session, pageProps } }: AppProps) => {
     <Provider store={store}>
       <SessionProvider session={session}>
         <Layout>
+          <ToastContainer position="top-right" />
           <Component {...pageProps} />
         </Layout>
       </SessionProvider>
