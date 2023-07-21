@@ -2,16 +2,12 @@ import mongoose, { Model, Schema } from "mongoose";
 
 const {  Number, String, Boolean } = Schema.Types;
 
-const HotDealsSchema = new Schema({
+const MealSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    originalPrice: {
-        type: Number,
-        required: true
-    },
-    discountPrice: {
+    price: {
         type: Number,
         required: true
     },
@@ -37,4 +33,4 @@ const HotDealsSchema = new Schema({
 );
 
 
-export default mongoose.models.HotDeals || mongoose.model('HotDeals', HotDealsSchema);
+export default mongoose.models.Meal || mongoose.model('Meal', MealSchema);

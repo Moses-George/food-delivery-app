@@ -1,8 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"; 
 import { RootState } from "@src/store/store";
-// import 
 
-const initialState = {
+interface initialState {
+    isVisible: boolean;
+}
+
+const initialState: initialState = {
     isVisible: false,
 }
 
@@ -10,11 +13,10 @@ const toggleSidebarSlice = createSlice({
     name: 'toggleSidebar',
     initialState: initialState,
     reducers: {
-        openSidebar: (state) => { state.isVisible = true},
-        closeSidebar(state) { state.isVisible = false},
+        toggleSidebar: (state) => {state.isVisible = !state.isVisible}, 
     },
 });
 
-export const { openSidebar, closeSidebar } = toggleSidebarSlice.actions;
+export const { toggleSidebar} = toggleSidebarSlice.actions;
 export const toggleSelector = (state: RootState) => state.toggleSidebarReducer;
 export default toggleSidebarSlice.reducer;

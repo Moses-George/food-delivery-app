@@ -6,7 +6,7 @@ import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 const HotMealCard = () => {
 
     return (
-        <div className="relative d-card flex flex-col p-4 sm:p-5 sm:mt-0 w-56 sm:justify-self-center sm:w-72 bg-white gap-y-9 shadow-lg rounded-lg">
+        <div className="relative d-card flex flex-col p-4 sm:p-5 sm:mt-0 w-56 sm:justify-self-center sm:w-72 bg-whie gap-y-9 shadow-lg rounded-lg">
             <div className="absolute top-24 left-0 py-1 px-2 bg-light-peach text-white text-sm rounded-tr-xl">50% off</div>
             <div className="absolute right-4 top-24 rounded-full p-2 bg-lightest-peach">
                 <MdFavorite className="text-dark-peach text-2xl" />

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MdArrowDropDown } from "react-icons/md";
+import { MdArrowDropDown, MdFilterList } from "react-icons/md";
+
 
 
 
@@ -8,12 +9,13 @@ const MenuDropDown = () => {
     const [dropdownIsVisible, setDropdownIsVisible] = useState(false);
 
     return (
-        <div>
-            <button onClick={() => setDropdownIsVisible(prev=> !prev)} className="text-white bg-dark-peach  hover:bg-medium-peach focus:ring-4 focus:outline-none focus:ring-light-peach font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
-                Default filter 
-                <MdArrowDropDown className="text-white text-2xl" />
+        <div className="relative">
+            <button onClick={() => setDropdownIsVisible(prev=> !prev)} className="flex items-center gap-x-1 text-dark-gray border border-dark-peach  focus:ring-4 focus:outline-none focus:ring-light-peach font-medium rounded-3xl text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
+                <MdFilterList className="text-dark-peach text-2xl" />
+                <span>Default filter</span> 
+                <MdArrowDropDown className="text-dark-peach text-2xl" />
             </button>
-            {dropdownIsVisible && <div className="z-10 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-md">
+            {dropdownIsVisible && <div className="z-10 w-48 absolute bg-white divide-y divide-gray-100 rounded-lg shadow-md">
                 <ul className="p-3 space-y-1 text-sm text-dark-gray" >
                     <li>
                         <div className="flex items-center p-2 rounded hover:bg-gray-100">

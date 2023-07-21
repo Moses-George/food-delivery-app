@@ -46,13 +46,20 @@ body {
 
 body {
   color: rgb(0,0,0);
-  background: linear-gradient(to right, #ffe9e3, #fff6f5, #fcedea);
+  background: #fafcff;
+  /* color: #e21f3d; */
+  /* background: #fff8f7; */
+  /* background: linear-gradient(to right, #ffe9e3, #fff6f5, #fcedea); */
   /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(255, 255, 255)
     )
   #ebedf0; */
+}
+
+.order {
+  overflow-x: scroll;
 }
 
 a {
@@ -64,11 +71,35 @@ header {
   box-shadow: 0 0 10px rgba(139, 136, 136, 0.25);
 }
 
+/* goapify */
+
+/* .geocoder-container {
+  margin: 0 auto;
+} */
+
+/* geoapify-autocomplete-input */
+
+.geoapify-autocomplete-input {
+  padding: 1.3rem !important;
+  border-radius: .5rem;
+  margin: 0 auto;
+  outline: none;
+  border: none !important;
+  box-shadow: 0 0 10px rgba(139, 136, 136, 0.25);
+}
+
+/* geopify ends */
+
 /*  conditionally added */
 
+.profile-sidebar {
+  background: #ee2846;
+    /* background: linear-gradient(to bottom, #e21f3d, #ff2546, #ff3453); */
+}
+
 .d-card {
-  background-color: rgba(255, 250, 251, 0.5);
-  box-shadow: 34px 34px 68px 0px rgba(139, 136, 136, 0.25), inset -8px -8px 16px 0px rgba(185, 122, 134, 0.7), inset 0px 14px 28px 0px #f5f0f1 ;
+  background-color: rgba(255, 253, 254, 0.5); 
+  box-shadow: 34px 34px 68px 0px rgba(180, 175, 175, 0.25), inset -8px -8px 16px 0px rgb(239, 245, 253), inset 0px 14px 28px 0px #fffdfd ;
 }
 
 .mobile-img {
@@ -97,27 +128,33 @@ input[type="radio"]:checked + span {
   display: block;
 }
 
-.shape {
+.active {
   position: relative;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 20px 0px 0px 20px;
+  background: #fafcff;
+  color: #e21f3d;
 }
 
-.shape::after, .shape::before {
+.active::after, .active::before {
   position: absolute;
   content: '';
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   right: 0px;
 }
 
-.shape::after {
-  top: -10px;
-  background: radial-gradient(circle at top left, #DA0463, 10px, white 11px);
+.active::after {
+  top: -14px;
+  background: radial-gradient(circle at top left, #ee2846, 14px, #fafcff 15px);
 }
 
-.shape::before {
-  bottom: -10px;
-  background: radial-gradient(circle at bottom left, #DA0463, 10px, white 11px);
+.active::before {
+  bottom: -14px;
+  background: radial-gradient(circle at bottom left, #ee2846, 14px, #fafcff 15px);
+}
+
+.inactive {
+  color: #fff;
 }
 
 .slide-down {

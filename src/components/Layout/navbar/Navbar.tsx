@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
 import { useSession } from "next-auth/react";
-import { openSidebar, toggleSelector } from "@src/store/features/sidebarToggle/toggleSidebar";
+import { toggleSidebar, toggleSelector } from "@src/store/features/sidebarToggle/toggleSidebar"; 
 import { useAppDispatch, useAppSelector } from "@src/store/hooks";
 
 const Navbar = () => {
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <nav className=" container grid grid-cols-3 items-center py-0 sm:py-4 px-5">
                     <div className="">
                         <Image src={logo} alt="logo" className="w-20 sm:hidden" />
-                        <HiMenuAlt2 className="hidden sm:block" style={{ fontSize: "35px", color: "hsl(233, 26%, 24%)" }} onClick={() => dispatch(openSidebar())} />
+                        <HiMenuAlt2 className="hidden sm:block" style={{ fontSize: "35px", color: "hsl(233, 26%, 24%)" }} onClick={() => dispatch(toggleSidebar())} />
                     </div>
                     <div className="">
                     </div>
@@ -43,7 +43,7 @@ const Navbar = () => {
                                 <FiShoppingBag className="text-dark-peach text-2xl" />
                             </div>
                         </Link>}
-                        {session && <Link href="/user">
+                        {session && <Link href="/customer">
                             <MdAccountBox className="-mb-2 text-dark-blue text-5xl" />
                         </Link>}
                         {!session && <Link href="/login" className="py-1 px-3 rounded-3xl hover:opacity-50 border-4 border-dark-peach bg-lightest-peach text-dark-peach">Login</Link>}

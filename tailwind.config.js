@@ -25,6 +25,7 @@ module.exports = {
         "light-peach": "#ef8172",
         "medium-peach": "#ff4c68",
         "dark-peach": "#DA0463",
+        "deep-peach": "#e21f3d",
         "grayish-white": "#f0f4f8",
       }
     },

@@ -19,7 +19,7 @@ const Option = ({ checked, onChange, name, icon }: optionProps) => {
                 />
                 <h1 className="text-xl font-semibold text-dark-gray justify-start px-0">{name}</h1>
             </div>
-            {icon}
+            {/* {icon} */}
         </div>
     )
 }

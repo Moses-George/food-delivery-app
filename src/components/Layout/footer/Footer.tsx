@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
 
     return (
-        <footer className="w-full h-max  py-3 md:mt-16 bg-[#ffe2da]">
+        <footer className="w-full h-max  py-3 md:mt-16 bg-[#f7faff]">
             <div className="container flex sm:flex-col items-center justify-between sm:gap-y-5">
                 <Image src={logo} alt="" className="w-32 h-24 sm:w-28 sm:h-20" />
                 <div className="flex gap-x-4 sm:-mt-6">

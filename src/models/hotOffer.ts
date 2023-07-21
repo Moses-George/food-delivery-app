@@ -2,12 +2,16 @@ import mongoose, { Model, Schema } from "mongoose";
 
 const {  Number, String, Boolean } = Schema.Types;
 
-const ProductSchema = new Schema({
+const HotOfferSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    price: {
+    originalPrice: {
+        type: Number,
+        required: true
+    },
+    discountPrice: {
         type: Number,
         required: true
     },
@@ -33,4 +37,4 @@ const ProductSchema = new Schema({
 );
 
 
-export default mongoose.models.Product || mongoose.model('Product', ProductSchema);
+export default mongoose.models.HotOffer || mongoose.model('HotOffer', HotOfferSchema);

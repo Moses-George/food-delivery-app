@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 const Address = () => {
 
     return (
-        <div className="flex justify-between items-center bg-lightest-peach p-4 rounded-3xl">
+        <div className="flex justify-between items-center bg-[#ffe9e3] p-4 rounded-3xl">
             <span className="text-dark-peach">Address 1</span>
             <MdDelete className="text-lg text-dark-peach" />
         </div>
@@ -11,7 +11,7 @@ const Address = () => {
 }
 
 
-const UserAddress = () => {
+const CustomerAddress = () => {
 
     return (
         <div className="w-full h-[30rem] col-start-3 col-end-4 sm:col-start-1 sm:col-end-4 row-start-1 row-end-3 sm:row-start-2 sm:row-end-3 p-3">
@@ -32,4 +32,4 @@ const UserAddress = () => {
     )
 }
 
-export default UserAddress;
+export default CustomerAddress;

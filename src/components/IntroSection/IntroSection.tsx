@@ -7,7 +7,7 @@ import TextAnimation from "../TextAnimation/TextAnimation";
 const IntroSection = () => {
 
     return (
-        <div className="flex h-[33rem] w-full sm:flex-col sm:h-2/5 sm:pb-10 ">
+        <div className="flex h-[33rem] bg-[#f7faff] w-full sm:flex-col sm:h-2/5 sm:pb-10 ">
             <div className="mobile-img hidden sm:block">
                 <TextAnimation />
             </div>

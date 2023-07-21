@@ -1,6 +1,6 @@
 
 interface clickProp {
-   onClick: any;
+   onClick?: any;
 }
 
 const Backdrop = ({ onClick }: clickProp) => {

@@ -2,12 +2,12 @@ import { Greeting } from "@src/utils/Dates&Time/greetings";
 import { MdAccountBox, MdLocationPin } from "react-icons/md"
 
 
-const UserDetails = () => {
+const CustomerDetails = () => {
 
     const greeting = new Greeting();
 
     return (
-        <div className="w-full h-full bg-[#ffe2da] justify-self-start rounded-lg col-start-1 col-end-3 sm:col-start-1 sm:col-end-4">
+        <div className="w-full h-full bg-[#ffe9e3] justify-self-start rounded-lg col-start-1 col-end-3 sm:col-start-1 sm:col-end-4">
             <div className="flex items-center sm:flex-col">
                 <MdAccountBox className="text-[10rem] text-dark-gray" />
                 <div className="space-y-3">
@@ -33,4 +33,4 @@ const UserDetails = () => {
     )
 }
 
-export default UserDetails;
+export default CustomerDetails;
