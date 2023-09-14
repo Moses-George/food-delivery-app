@@ -4,7 +4,7 @@ import pic1 from "@src/assets/images/bg/porridge.jpeg";
 const OrderItems = () => {
 
     return (
-        <div className="w-full bg-white rounded-md shadow-md p-4">
+        <div className="w-full bg-white rounded-md shadow-lg p-4">
             <div className="w-full p-4 flex justify-between">
                 <span className="font-semibold text-lg">Items</span>
                 <div className="space-x-12">

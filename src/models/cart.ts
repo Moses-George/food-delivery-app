@@ -7,15 +7,15 @@ const CartSchema = new Schema({
         type: ObjectId,
         ref: 'User' // referencing the User model
     },
-    products: [
+    meals: [
         {
             quantity: {
                 type: Number,
                 default: 1
             },
-            product: {
+            meal: {
                 type: ObjectId,
-                ref: 'Product'
+                ref: 'Meal'
             }
         }
     ]

@@ -106,7 +106,6 @@ header {
   background-image: url('../assets/images/bg/food-1.jpg');
   background-size: cover;
   background-position: center;
-  z-index: -1;
   height: 29rem;
 }
 
@@ -366,7 +365,7 @@ label {
   font-size: 18px;
   font-weight: normal;
   position: absolute;
-  pointer-events: none;
+  /* pointer-events: none; */
   left: 5px;
   top: 10px;
   transition: 0.2s ease all;

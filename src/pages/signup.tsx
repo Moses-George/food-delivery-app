@@ -8,6 +8,7 @@ import { signInUser } from "@src/lib/auth/signInUser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useForm from "@src/hooks/useForm";
+import { useCreateUserMutation } from "@src/store/features/api/authApi";
 
 
 const Signup = () => {
@@ -17,6 +18,32 @@ const Signup = () => {
     const { data: session } = useSession();
     console.log(session);
     const { credentials, handleChange } = useForm();
+
+    // const [createUser, { isLoading: loading, isError, error, isSuccess, data: response }] = useCreateUserMutation();
+
+    // useEffect(() => {
+    //     const id = toast.loading("Creating user account...");
+
+    //     if (isSuccess) {
+    //         toast.update(id, { render: response.message, type: "success", isLoading: false, autoClose: 4000 });
+    //     }
+
+    //     if (isError) {
+    //         toast.update(id, { render: error as any, type: "error", isLoading: false, autoClose: 4000 });
+    //     }
+    // }, [loading]);
+
+    // const SignupUser = async (event: FormEvent) => {
+    //     event.preventDefault();
+
+    //     const { email, password } = credentials;
+    //     await createUser(credentials);
+
+    //     if (isSuccess) {
+    //         await signInUser(email, password);
+    //     }
+
+    // }
 
     const SignupUser = async (event: FormEvent) => {
         event.preventDefault();

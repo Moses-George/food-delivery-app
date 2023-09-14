@@ -1,6 +1,7 @@
-import mongoose, { Model, Schema } from "mongoose";
+import mongoose, { Model, Schema } from "mongoose"; 
+import {nanoid} from 'nanoid';
 
-const {  Number, String, Boolean } = Schema.Types;
+const { Number, String, Boolean } = Schema.Types;
 
 const MealSchema = new Schema({
     name: {
@@ -11,10 +12,14 @@ const MealSchema = new Schema({
         type: Number,
         required: true
     },
+    disountPrice: {
+        type: Number,
+        required: true
+    },
     sku: {
         type: String,
         unique: true,
-        default: "nanan"
+        default: nanoid()
     },
     description: {
         type: String,
@@ -27,7 +32,14 @@ const MealSchema = new Schema({
     category: {
         type: String,
         required: true
-    }
+    },
+    type: {
+        type: String,
+        default: 'ordinary',
+        enum: {
+            values: ['ordinary', 'hot-offer'],
+        }
+    },
 },
     { timestamps: true },
 );

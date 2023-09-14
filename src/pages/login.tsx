@@ -1,5 +1,5 @@
 import useForm from "@src/hooks/useForm";
-import { signInUser } from "@src/lib/auth/signInUser";
+import { signInUser } from "@src/lib/auth/auth";
 import { getSession, signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";

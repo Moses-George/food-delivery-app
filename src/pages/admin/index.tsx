@@ -1,4 +1,4 @@
-import {AiFillDashboard} from "react-icons/ai";
+import { AiFillDashboard } from "react-icons/ai";
 import ProfileLayout from "@src/components/Layout/ProfileLayout/ProfileLayout";
 import { hasToken } from "@src/middleware/authCheck";
 import { GetServerSideProps, NextApiRequest } from "next";
@@ -11,7 +11,7 @@ import CustomerMap from "@src/components/Admin/Analytics/CustomerMap";
 
 const Dashboard = () => {
 
-    const series = [{name: 'sales', data: [31, 40, 28, 51, 42, 109, 100] }];
+    const series = [{ name: 'sales', data: [31, 40, 28, 51, 42, 109, 100] }];
     const options: ApexOptions = {
         chart: {
             group: 'sparklines',
@@ -33,7 +33,7 @@ const Dashboard = () => {
         },
         xaxis: {
             type: 'datetime',
-            categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:00:30.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z" ]
+            categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:00:30.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
         },
         colors: ['#DA0463']
         // series: 
@@ -79,7 +79,7 @@ const Dashboard = () => {
                         <ApexCharts series={series} options={options} type="area" height={80} width="100%" />
                     </div>
                 </div>
-                <div className="grid grid-cols-2 gap-6"> 
+                <div className="grid grid-cols-2 gap-6">
                     <Revenue />
                     <CustomerMap />
                 </div>
@@ -90,18 +90,18 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-export const  getServerSideProps: GetServerSideProps = async (context) => {
+// export const getServerSideProps: GetServerSideProps = async (context) => {
 
-    const token = await hasToken(context.req as NextApiRequest);
-  
-    if(!token){
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false
-            }
-        }
-    }
-  
-    return { props: {}}
-  }
+//     const token = await hasToken(context.req as NextApiRequest);
+
+//     if (!token) {
+//         return {
+//             redirect: {
+//                 destination: '/',
+//                 permanent: false
+//             }
+//         }
+//     }
+
+//     return { props: {} }
+// }

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/image"; 
 import Link from "next/link";
 import { PropsWithChildren, Fragment, ReactNode, useState } from "react";
 import { FaSearch } from "react-icons/fa";

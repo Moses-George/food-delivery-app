@@ -1,15 +1,4 @@
-interface ErrorMessage {
-    usernameError: string;
-    emailError: string;
-    passwordError: string;
-}
-
-interface Credentials {
-    username: string;
-    email: string;
-    password: string;
-}
-
+import { Credentials } from "../interfaces/interfaces";
 
 export class Validator {
     message: string;
@@ -70,6 +59,3 @@ export class Validator {
             return this.message;
     }
 }
-
-// let userValidity = new Validator({ username: "George", email: "mosesgeorge323287@gmail.com", password: "323287" });
-// console.log(userValidity.errorMessage()); 

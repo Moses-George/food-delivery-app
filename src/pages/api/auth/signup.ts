@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             } else {
                 const data = await User.create({ username, email, password });
                 if (data) {
-                    res.status(201).json({ message: 'User created', ...data, ok: true });
+                    res.status(201).json({ message: 'Account successfully created!', ...data, ok: true });
                 }
             }
         } catch (err) {

@@ -5,7 +5,7 @@ import { MdAccountCircle, MdLocationPin } from "react-icons/md";
 const CustomerOrderDetails = () => {
 
     return (
-        <div className="bg-white rounded-md shadow-md h-4/5">
+        <div className="bg-white rounded-md shadow-lg h-4/5">
             <div className="p-8 flex gap-x-3 border-b">
                 <MdAccountCircle className="text-6xl" />
                 <div className="space-y-1">

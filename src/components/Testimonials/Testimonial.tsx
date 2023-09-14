@@ -11,9 +11,9 @@ const Testimonial = ({ id, testifier, statement, imageSrc }: Testimonial) => {
                     <img src={imageSrc} alt="" className="rounded-full w-20 h-20" />
                     <p className="text-xl font-bold text-grayish-blue">{testifier}</p>
                 </div>
-                <div className=" flex bg-lightest-peach text-white h-60 p-2 rounded-lg shadow-md mb-2 relative">
+                <div className=" flex bg-white text-medium-gray h-60 p-2 rounded-lg shadow-md mb-2 relative">
                     <div className="self-center p-5 text-center">{statement}</div>
-                    <div className="absolute right-0 top-1/2 transform translate-x-1/2 rotate-45 w-12 sm:w-8 h-12 sm:h-8 bg-lightest-peach"></div>
+                    <div className="absolute right-0 top-1/2 transform translate-x-1/2 rotate-45 w-12 sm:w-8 h-12 sm:h-8 bg-white"></div>
                 </div>
             </div>
         </SplideSlide>

@@ -59,7 +59,7 @@ const CustomerFavouriteChart = () => {
     }
 
     return (
-        <div className="bg-white rounded-md shadow-md p-6 w-full space-y-8 h-[32rem]">
+        <div className="bg-white rounded-md shadow-lg p-6 w-full space-y-8 h-[32rem]">
             <h1 className="font-medium text-xl">Customer Favourite</h1>
             <div className=""> 
                 <ApexCharts options={options} series={series} type="polarArea" width="100%" />

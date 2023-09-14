@@ -1,3 +1,7 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FaArrowLeft } from "react-icons/fa";
+import {IoAnalytics} from "react-icons/io5";
 import CustomerFavouriteChart from "@src/components/Admin/Orders/CustomerFavouriteChart";
 import CustomerOrderDetails from "@src/components/Admin/Orders/CustomerOrderDetails";
 import DeliveryGuyDetails from "@src/components/Admin/Orders/DeliveryGuyDetails";
@@ -6,10 +10,6 @@ import OrderItems from "@src/components/Admin/Orders/OrderItems";
 import OrderTracking from "@src/components/Admin/Orders/OrderTracking";
 import ProfileLayout from "@src/components/Layout/ProfileLayout/ProfileLayout";
 import MenuDropDown from "@src/components/UI/Search/MenuDropDown";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { FaArrowLeft } from "react-icons/fa";
-import {IoAnalytics} from "react-icons/io5";
 
 
 const OrderDetails = () => {

@@ -6,7 +6,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 const DeliveryGuyDetails = () => {
 
     return (
-        <div className="flex justify-between bg-dark-gray p-6 rounded-md shadow-md w-full">
+        <div className="flex justify-between bg-dark-gray p-6 rounded-md shadow-lg w-full">
             <div className="flex gap-2">
                 <MdAccountCircle className="text-7xl text-white" />
                 <div className="">

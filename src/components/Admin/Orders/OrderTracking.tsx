@@ -11,15 +11,6 @@ const OrderTracking = () => {
 
     const router = useRouter();
     const { query } = useRouter();
-    // const pathname = usePathname();
-    // const queryParams = useSearchParams();
-
-    // const createQueryString = useCallback((name: string, value: string)=> {
-    //     const params = new URLSearchParams(queryParams as any);
-    //     params.set(name, value);
-    //     return params.toString();
-    // }, [queryParams])
-    // const se
 
     let mapContainer: any;
     const myAPIKey = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
@@ -54,19 +45,19 @@ const OrderTracking = () => {
         geolocate.on('geolocate', () => console.log('A geolocate event has occured'));
 
         map.addControl(new NavigationControl());
-        
-    }, [mapContainer]); 
+
+    }, [mapContainer]);
 
     return (
         <>
-            {query.fullscreen &&
-             <MapFullScreen /> 
-             }
-            <div className="w-full h-fit shadow-md p-6 bg-white rounded-md">
+            {query.fullscreen && <MapFullScreen />}
+            <div className="w-full h-fit shadow-lg p-6 bg-white rounded-md">
                 <h1 className="text-xl font-medium text-dark-gray">Track Order</h1>
                 <div className="map-container h-[27rem] w-full bg-whit" ref={el => mapContainer = el}></div>
-                <Link href={{ pathname: router.pathname, query: { ...query, fullscreen: true } }}>
-                    <BsArrowsFullscreen className="text-dark-gray relative ml-auto mr-0 text-2xl" />
+                <Link className="" href={{ pathname: router.pathname, query: { ...query, fullscreen: true } }}>
+                    <div className="p-3 w-fit bg-dark-gray rounded-md shadow-md relative ml-auto mr-0">
+                        <BsArrowsFullscreen className="text-white text-xl" />
+                    </div>
                 </Link>
             </div>
         </>

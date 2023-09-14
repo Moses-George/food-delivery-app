@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from '@src/store/store';
 import { SessionProvider } from "next-auth/react";
 import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const MyApp = ({ Component, pageProps: { session, pageProps } }: AppProps) => {
 
@@ -13,7 +14,7 @@ const MyApp = ({ Component, pageProps: { session, pageProps } }: AppProps) => {
     <Provider store={store}>
       <SessionProvider session={session}>
         <MainLayout> 
-          <ToastContainer position="top-right" /> 
+          <ToastContainer position="top-center" /> 
           <Component {...pageProps} /> 
         </MainLayout>
       </SessionProvider>

@@ -3,7 +3,7 @@
 const DeliveryStatus = () => {
 
     return (
-        <div className="flex w-full p-8 bg-white rounded-md shadow-md">
+        <div className="flex w-full p-8 bg-white rounded-md shadow-lg">
             <div className="w-full space-y-2">
                 <div className="flex items-center w-full">
                     <span className="p-3 rounded-full bg-dark-peach"></span>
@@ -39,8 +39,8 @@ const DeliveryStatus = () => {
 
             <div className="w-full space-y-2">
                 <div className="flex items-center w-full">
-                    <span className="p-3 rounded-full bg-dark-peach"></span>
-                    <span className="w-full h-1 bg-dark-peach rounded-md -ml-1"></span>
+                    <span className="p-3 rounded-full bg-gray-300"></span>
+                    <span className="w-full h-1 bg-gray-300 rounded-md -ml-1"></span>
                 </div>
                 <div className="p-2 space-y-2">
                     <h4 className="text-dark-gray text-lg font-semibold">Order Delivered</h4>
